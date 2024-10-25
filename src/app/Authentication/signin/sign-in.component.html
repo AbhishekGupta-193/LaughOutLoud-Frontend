@@ -1,0 +1,72 @@
+<div class="landing-page-container">
+    <div class="row landing-page-subcontainer">
+      <div class="col-12">
+        <form class="col-10 login-body" [formGroup]="signInForm" (ngSubmit)="onsignInFormSubmit()">
+          <span class="color-blue" style="font-weight: bold; font-size: 18px"
+            >Authentication</span
+          >
+          <h3 style="margin-top: 5%">Log in to your Account</h3>
+          <p style="color: rgb(141, 137, 137); font-size: 12px; font-weight: 500">
+            Welcome back! Select method to log in:
+          </p>
+          <div class="row margin-bottom-5 login-options">
+            <div class="col-5 login-option" (click)=notImplementedYet()>
+              <img src="../../assets/google.png" alt="" />
+              Google
+            </div>
+            <div class="col-5 login-option" (click)=notImplementedYet()>
+              <img src="../../assets/facebook.png" alt="" />
+              Facebook
+            </div>
+          </div>
+          <p class="line">or continue with Mobile</p>
+          <div class="form-floating mb-3">
+            <input
+              type="mobile"
+              class="form-control"
+              id="floatingInput"
+              placeholder="9876543212"
+              formControlName="mobile_no"
+            />
+            <label for="floatingInput">Mobile No</label>
+          </div>
+          <div class="form-floating margin-bottom-5">
+            <input
+              type="password"
+              class="form-control"
+              id="floatingPassword"
+              placeholder="Password"
+              formControlName="password"
+            />
+            <label for="floatingPassword">Password</label>
+          </div>
+  
+          <div class="row margin-left-1 margin-bottom-5">
+            <div class="col-6 list-group-item" style="font-size: 13px">
+              <input
+                class="form-check-input me-1"
+                type="checkbox"
+                value=""
+                id="firstCheckbox"
+                style="cursor: pointer"
+              />
+              <label class="form-check-label" for="firstCheckbox" (click)=notImplementedYet()
+                >Remember Me</label
+              >
+            </div>
+            <div class="col-6 color-blue forgot-password" style="font-size: 13px" (click)=notImplementedYet()>
+              Forgot password?
+            </div>
+          </div>
+          <button class="col-12 btn btn-purple margin-bottom-5" type="submit" [disabled]="!signInForm.valid">
+            Log in
+          </button>
+          <div class="register">
+            <p>Don't have an account?</p>
+            <span [routerLink]="['/register']">Create an acount</span>
+          </div>
+      </form>
+      </div>
+    </div>
+  </div>
+  

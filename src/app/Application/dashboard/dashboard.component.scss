@@ -1,0 +1,234 @@
+img{
+    cursor: pointer;
+}
+.dash-container{
+    display: flex;
+    flex-direction: column;
+    width: 85%;
+    margin: auto;
+    border-radius: 12px;
+    background-color: rgb(246, 243, 243);
+}
+.dash-nav{
+    display: flex;
+    justify-content: space-between;
+    border-radius: 12px;
+    margin: 2%;
+    background-color: white;
+}
+.nav-logo{
+    display: flex;
+    align-items: center;
+    width: 30%;
+    padding: 20px;
+    border-right: 1.5px solid rgb(230, 226, 226);
+    font-weight: bold;
+    font-size: 22px;
+    color: rgb(80, 8, 121);
+}
+.nav-search{
+    width: 50%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 20px;
+    border-right: 1.5px solid rgb(230, 226, 226);
+    color: rgb(175, 173, 173);
+}
+.nav-search input{
+    padding: 6px;
+    border: none;
+    outline: none;
+    width: 100%;
+}
+.nav-profile{
+    display: flex;
+    align-items: center;
+    width: 20%;
+    padding: 20px;
+    font-weight: bold;
+}
+.nav-profile span{
+    font-size: 14px;
+    margin-left: 3%;
+}
+.nav-profile img{
+    cursor: pointer;
+}
+.dash-body{
+    margin: 2%;
+}
+.dash-sections{
+    display: flex;
+    justify-content: space-between;
+}
+.profile-section{
+    display: flex;
+    flex-direction: column;
+    // justify-content: center;
+    align-items: center;
+    background-color: white;
+    width: 26%;
+    // margin-right: 2%;
+    border-radius: 12px;
+    height: 180px;
+}
+.profile-section img{
+    margin-top: 4%;
+    height: 80px;
+    width: 80px;
+}
+.main-section{
+    display: flex;
+    flex-direction: column;
+    // justify-content: center;
+    // background-color: white;
+    width: 45%;
+    // margin-right: 2%;
+    border-radius: 12px;
+    // height: 300px;
+}
+.msg-box{
+    display: flex;
+    flex-direction: row;
+    background-color: white;
+    border-radius: 12px;
+    padding: 15px;
+    width: 100%;
+    margin-bottom: 5%;
+}
+.img-box{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 20%;
+}
+.input-box{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+}
+.input-box textarea{
+    height: 80px;
+}
+.msg-type{
+    margin-top: 2%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.type{
+    display: flex;
+    width:30%;
+    justify-content: space-between;
+    font-size: 12px;
+    color: rgb(80, 8, 121);
+}
+.post-btn{
+    display: flex;
+    width: 22%;
+    justify-content: center;  
+    align-items: center; 
+    background-color: white;
+    border-radius: 6px; 
+    border: 1.5px solid rgb(80, 8, 121);
+    padding-top: 2px;
+    padding-bottom: 2px;
+    cursor: pointer;
+}
+.post-btn span{
+    margin-right: 5%;
+    color: rgb(80, 8, 121);
+}
+
+.post-box{
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 12px;
+    padding: 15px;
+    width: 100%;
+    margin-bottom: 5%;
+}
+.post-header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 4%;
+}
+.post-user{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40%
+}
+.post-user span{
+    margin-left: 4%;
+}
+.post-header span{
+    font-weight: bold;
+}
+.post-content{
+    font-size: 12px;
+}
+.post-reactions{
+    display: flex;
+    width: 70%;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 12px;
+    margin-top: 6%;
+    font-weight: 600;
+    padding-bottom: 4%;
+}
+.reaction{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.reaction :hover{
+    color: rgb(80, 8, 121);
+}
+.reaction span{
+    margin-left:4%;
+    color: rgb(203, 198, 198);
+}
+.accounts-section{
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    border-radius: 12px;
+}
+.accounts-section span{
+    color:rgb(118, 114, 114);
+    margin-bottom: 6%;
+    margin-left: 3%;
+}
+.account{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 8%;
+    justify-content: space-between;
+    width: 95%;
+}
+.account span{
+    margin: 3%;
+    color: black;
+    font-size: 13px;
+    font-weight: 600;
+}
+.plus{
+    border: none;
+    padding: 2px;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-radius: 70%;
+    font-weight: bold;
+    color:rgb(80, 8, 121);
+    background-color: rgb(221, 187, 242);
+    cursor: pointer;
+}

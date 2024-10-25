@@ -1,0 +1,64 @@
+<div class="landing-page-container">
+    <div class="row landing-page-subcontainer">
+      <div class="col-12">
+        <form class="col-10 signup-body" [formGroup]="signUpForm" (ngSubmit)="onsignUpFormSubmit()">
+          <span class="color-blue" style="font-weight: bold; font-size: 18px"
+            >Authentication</span
+          >
+          <h3 style="margin-top: 5%">Sign Up from here!</h3>
+          <p style="color: rgb(141, 137, 137); font-size: 12px; font-weight: 500">
+            Welcome back! Select method to Sign up:
+          </p>
+          <div class="row margin-bottom-5 signup-options">
+            <div class="col-5 signup-option" (click)=notImplementedYet()>
+              <img src="../../assets/google.png" alt="" />
+              Google
+            </div>
+            <div class="col-5 signup-option" (click)=notImplementedYet()>
+              <img src="../../assets/facebook.png" alt="" />
+              Facebook
+            </div>
+          </div>
+          <p class="line">or continue with Mobile</p>
+          <div class="form-floating mb-3">
+            <input
+              type="text"
+              class="form-control"
+              id="floatingInput"
+              placeholder="ShyamLal"
+              formControlName="name"
+            />
+            <label for="floatingInput">Name</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input
+              type="mobile"
+              class="form-control"
+              id="floatingInput"
+              placeholder="9876543212"
+              formControlName="mobile_no"
+            />
+            <label for="floatingInput">Mobile No</label>
+          </div>
+          <div class="form-floating margin-bottom-5">
+            <input
+              type="password"
+              class="form-control"
+              id="floatingPassword"
+              placeholder="Password"
+              formControlName="password"
+            />
+            <label for="floatingPassword">Password</label>
+          </div>
+          <button class="col-12 btn btn-purple margin-bottom-5" type="submit" [disabled]="!signUpForm.valid">
+            Sign Up
+          </button>
+          <div class="register">
+            <p>Already have an account?</p>
+            <span [routerLink]="['/']">Log In</span>
+          </div>
+      </form>
+      </div>
+    </div>
+  </div>
+  
