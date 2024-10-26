@@ -16,30 +16,30 @@ import { Router } from '@angular/router';
 })
 export class SigninComponent {
   signInForm!: FormGroup;
-  mobile_no: string = '';
+  username: string = '';
   password: string = '';
 
   constructor(private formbuilder: FormBuilder, private http: HttpService, private signinService:SignInService,private router:Router) {
     this.signInForm = formbuilder.group({
-      mobile_no: ['', Validators.required],
+      username: ['', Validators.required],
       password: ['', Validators.required],
     });
   }
 
   onsignInFormSubmit() {
     console.log(this.signInForm.value);
-    this.mobile_no = this.signInForm.get('mobile_no')?.value;
+    this.username = this.signInForm.get('username')?.value;
     this.password = this.signInForm.get('password')?.value;
     const credentials:any = {
-      "mobileNo":this.mobile_no,
+      "username":this.username,
       "password":this.password
     }
-    this.http.signIn("/loginUser",credentials).subscribe({
+    this.http.signIn("/login",credentials).subscribe({
       next:(res:any)=>{
         console.log("login successful : ",res);
         alert("Congratulations! You are logged in.")
         this.signinService.updateUser(res);
-        this.router.navigate(['/dashboard']);
+        this.router.navigate(['/']);
         
       },
       error:(err:string)=>{

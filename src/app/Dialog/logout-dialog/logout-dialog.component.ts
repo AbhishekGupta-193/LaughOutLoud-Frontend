@@ -16,6 +16,7 @@ export class LogoutDialogComponent {
   }
 
   logout(): void {
+    localStorage.clear();
     this.router.navigate(['/signup']);
     this.dialogRef.close();
   }

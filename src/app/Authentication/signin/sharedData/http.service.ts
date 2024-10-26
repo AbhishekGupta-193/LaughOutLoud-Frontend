@@ -9,7 +9,7 @@ export class HttpService {
 
   constructor(private http:HttpClient) { }
 
-  baseURL:string = "http://localhost:8080/auth";
+  baseURL:string = "http://localhost:8080/api/users";
 
   signIn(url:String,credentials:any):Observable<any>{
     console.log("signIn API working");

@@ -10,34 +10,30 @@ import { Router } from '@angular/router';
 })
 export class SignupComponent {
   signUpForm!:FormGroup;
-  name:string='';
-  mobile_no: string = '';
+  username: string = '';
   password: string = '';
 
   constructor (private http:HttpService,private formbuilder:FormBuilder,private router:Router){
     this.signUpForm = formbuilder.group({
-      name:['',Validators.required],
-      mobile_no:['',Validators.required],
+      username:['',Validators.required],
       password:['',Validators.required],
     })
   }
 
   onsignUpFormSubmit(){
-    this.name=this.signUpForm.get('name')?.value;
-    this.mobile_no=this.signUpForm.get('mobile_no')?.value;
+    this.username=this.signUpForm.get('username')?.value;
     this.password=this.signUpForm.get('password')?.value;
 
     const payload:any ={
-      name:this.name,
-      mobileNo:this.mobile_no,
+      username:this.username,
       password:this.password
     }
 
-    this.http.SignUp("/registerUser",payload).subscribe({
+    this.http.SignUp("/register",payload).subscribe({
       next:(res:any)=>{
         console.log("Signup successful : ",res);
         alert("Congratulations! Sign Up is successful.")
-        this.router.navigate(['/']);
+        this.router.navigate(['/signin']);
       },
       error:(err:any)=>{
         alert("Oops! Sign Up failed.")

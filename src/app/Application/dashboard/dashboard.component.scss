@@ -6,7 +6,7 @@ img{
     flex-direction: column;
     width: 85%;
     margin: auto;
-    margin-top: 2%;
+    margin-top: 1%;
     border-radius: 12px;
     background-color: rgb(246, 243, 243);
 }
@@ -233,3 +233,20 @@ img{
     background-color: rgb(221, 187, 242);
     cursor: pointer;
 }
+
+.has-media{
+    display: none;
+}
+//FOR SCROLLBAR
+
+.main-section {
+    max-height: 460px; 
+    overflow: auto;
+    scrollbar-width: none; 
+    -ms-overflow-style: none; 
+  }
+  
+  .main-section::-webkit-scrollbar {
+    display: none; 
+  }
+  

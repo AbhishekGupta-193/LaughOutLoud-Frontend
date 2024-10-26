@@ -7,12 +7,17 @@ import { Observable } from 'rxjs';
 })
 export class HttpService {
 
-
   constructor(private http:HttpClient) { }
 
-  baseURL:string = "http://localhost:8080/api/users";
+  baseURL:string = "http://localhost:8080/api";
 
-  SignUp(url:string,payload:any):Observable<any>{
+  getUsersData(url:String):Observable<any>{
+    console.log("getUsersData API working");
+    return this.http.get(this.baseURL+url);
+  }
+
+  createPost(url:string,payload:any):Observable<any>{
+    console.log("createPost Service Working");
     return this.http.post(this.baseURL+url,payload);
   }
 }

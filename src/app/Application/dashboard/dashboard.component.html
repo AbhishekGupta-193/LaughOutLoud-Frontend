@@ -6,11 +6,11 @@
         </div>
         <div class="nav-search">
             <img src="../../../assets/searchIcon.svg" alt="SEARCH" height="30px" width="40px">
-            <input type="text" placeholder="Search from here...">
+            <input type="text" placeholder="Search from here..." [(ngModel)]="searchText">
         </div>
         <div class="nav-profile">
             <img src="../../../assets/dummyProfile.png" alt="profile" height="30px" width="30px">
-            <span>Abhishek Gupta</span>
+            <span>{{userDetails.username}}</span>
             <img src="../../../assets/dropdown.svg" alt="dropdown" (click)="openDialog()">
         </div>
     </div>
@@ -18,7 +18,7 @@
         <div class="dash-sections">
             <div class="profile-section">
                 <img src="../../../assets/dummyProfile.png" alt="profile">
-                <h4>Abhishek Gupta</h4>
+                <h4>{{userDetails.username}}</h4>
             </div>
             <div class="main-section">
                 <div class="msg-box">
@@ -26,36 +26,43 @@
                         <img src="../../../assets/dummyProfile.png" alt="profile" height="40px" width="40px">
                     </div>
                     <div class="input-box">
-                        <textarea name="" id="" placeholder="write msg here..."></textarea>
-                        <div class="msg-type">
-                            <div class="type">
-                                <div style="display: flex;justify-content: center;align-items: center;">
-                                    <img src="../../../assets/photoIcon.svg" alt="photo" height="16px" width="16px">
-                                    <span>photo</span>
-                                </div>
-                                <div style="display: flex;justify-content: center;align-items: center;">
-                                    <img src="../../../assets/videoIcon.svg" alt="video" height="16px" width="16px">
-                                    <span>Video</span>
-                                </div>
-                            </div>
-                            <button class="post-btn">
-                                <span>Post</span>
-                                <img src="../../../assets/sendIcon.svg" alt="video" height="18px" width="18px">
-                            </button>
+                        <textarea name="" id="message" placeholder="write msg here..." [(ngModel)]="content" required=""></textarea>
+                        <div style="display: flex; justify-content: center; align-items: center;margin-top: 2%;">
+                            <label for="photoUpload" style="cursor: pointer;width: 30%;display: flex;justify-content: center;align-items: center;justify-content: flex-start;">
+                              <img src="../../../assets/photoIcon.svg" alt="photo" height="16px" width="16px">
+                              <span style="font-size: 12px;color: rgb(80, 8, 121);">Photo</span>
+                            </label>
+                          <input type="text" id="photoUpload" [(ngModel)]="mediaUrl" style="width: 100%;">
                         </div>
-                    </div>
+                        <div class="msg-type">
+                          <div class="type">
+                            <div style="display: flex; justify-content: center; align-items: center;">
+                              <img src="../../../assets/videoIcon.svg" alt="video" height="16px" width="16px">
+                              <span>Video</span>
+                            </div>
+                          </div>
+                          <button class="post-btn" (click)="onPostBtnClick()">
+                            <span>Post</span>
+                            <img src="../../../assets/sendIcon.svg" alt="send" height="18px" width="18px">
+                          </button>
+                        </div>
+                      </div>
+                      
                 </div>
-                <div class="post-box">
+                <div class="post-box" *ngFor="let post of posts | searchFilter:searchText">
                     <div class="post-header">
                         <div class="post-user">
                             <img src="../../../assets/dummyProfile.png" alt="profile" height="25px" width="25px">
-                            <span>Abhishek Gupta</span>
+                            <span>{{post.username}}</span>
                         </div>
                         <img src="../../../assets/3dots.svg" alt="more" height="25px" width="25px">
                         
                     </div>
                     <div class="post-content">
-                        <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum maiores aliquid nesciunt blanditiis porro eius vitae earum, harum exercitationem quae libero mollitia odit aspernatur expedita recusandae ducimus alias quam consectetur?</span>
+                        <span>{{post.content}}</span>
+                    </div>
+                    <div class="post-img"  [ngClass]="{'has-media': post.mediaUrl === ''}">
+                        <img src={{post.mediaUrl}} alt="post-img" style="max-height: 450px;width: 100%;">
                     </div>
                     <div class="post-reactions">
                         <div class="reaction">
@@ -81,10 +88,12 @@
                             <span>Mayank Aryan</span>
                         </div>
                         <img src="../../../assets/3dots.svg" alt="more" height="25px" width="25px">
-                        
                     </div>
                     <div class="post-content">
                         <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum maiores aliquid nesciunt blanditiis porro eius vitae earum, harum exercitationem quae libero mollitia odit aspernatur expedita recusandae ducimus alias quam consectetur?</span>
+                    </div>
+                    <div class="post-img">
+                        <img src="https://th.bing.com/th/id/OIP.MBEizT9RQV5EOTPEqtF_9AAAAA?rs=1&pid=ImgDetMain" alt="post-img" style="max-height: 450px;width: 100%;">
                     </div>
                     <div class="post-reactions">
                         <div class="reaction">
