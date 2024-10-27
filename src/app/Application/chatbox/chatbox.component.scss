@@ -1,0 +1,130 @@
+.chat-body{
+    display: flex;
+    flex-direction: row;
+}
+.chat-box{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 12px;
+    padding: 15px;
+    width: 65%;
+    margin: auto;
+    margin-left: 5%;
+    margin-top: 0;
+    width: 530px;
+}
+.chat-header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 2%;
+    margin-bottom: 2%;
+    // border-bottom: 1px solid rgb(181, 113, 220);
+    box-shadow: 0 0px 5px 0px rgb(138, 90, 167);
+    padding: 10px;
+    border-radius: 5px;
+}
+.chat-user{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 40%
+}
+.chat-user span{
+    margin-left: 4%;
+    color:rgb(80, 8, 121);
+
+}
+.chat-header span{
+    font-weight: bold;
+}
+.chat-content{
+    font-size: 12px;
+    width: 100%;
+}
+
+.profile-section{
+    display: flex;
+    flex-direction: column;
+    // justify-content: center;
+    align-items: center;
+    background-color: white;
+    width: 25%;
+    // margin-right: 2%;
+    border-radius: 12px;
+    height: 180px;
+    width: 250px;
+}
+.profile-section img{
+    margin-top: 4%;
+    height: 80px;
+    width: 80px;
+}
+.his-chat{
+    margin: 2%;
+    display: flex;
+    justify-content: flex-start;
+
+}
+.his-chat span{
+    display: flex;
+    background-color: rgb(224, 208, 208);
+    color: black;
+    padding: 8px;
+    border-radius: 10px;
+    max-width: 60%;
+}
+.my-chat{
+    margin: 2%;
+    display: flex;
+    justify-content: flex-end;
+}
+.my-chat span{
+    display: flex;
+    background-color: rgb(150, 86, 186);
+    color: white;
+    padding: 8px;
+    border-radius: 10px;
+    max-width: 60%;
+}
+
+.chat-input{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 2%;
+}
+.chat-icons{
+    display: flex;
+    justify-content: space-between;
+    width: 20%;
+    margin-right: 2%;
+}
+.chat-input input{
+    display: flex;
+    width: 70%;
+    margin-right: 4%;
+    border: none;
+    background-color: rgb(247, 241, 241);
+    padding: 8px;
+    border-radius: 6px;
+    outline: none;
+}
+
+
+//FOR SCROLLBAR
+.chat-content {
+    max-height: 330px; 
+    overflow: auto;
+    scrollbar-width: none; 
+    -ms-overflow-style: none; 
+  }
+  
+  .chat-content::-webkit-scrollbar {
+    display: none; 
+  }
+  

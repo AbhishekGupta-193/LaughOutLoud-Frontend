@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { LogoutDialogComponent } from 'src/app/Dialog/logout-dialog/logout-dialog.component';
 import { SignInService } from 'src/app/Authentication/signin/sharedData/sign-in.service';
 import { HttpService } from './sharedData/http.service';
+import { Router } from '@angular/router';
 
 interface Comment {
   id: number;
@@ -25,11 +26,12 @@ interface Post {
 export class DashboardComponent {
   constructor(public dialog: MatDialog,
     private signInService:SignInService,
-    private httpService:HttpService
+    private httpService:HttpService,
+    private router:Router
   ) {}
   
   searchText:any;
-
+  currentRoute: string = '';
   userDetails:any;
   allUserDetails:any;
   ngOnInit(): void {
@@ -93,6 +95,11 @@ export class DashboardComponent {
     });
   
     console.log("posts", this.posts);
+
+    this.router.events.subscribe(() => {
+      this.currentRoute = this.router.url;
+      console.log("curren route: ",this.currentRoute);
+    });
   }
   
 
@@ -137,6 +144,18 @@ export class DashboardComponent {
       [array[i], array[j]] = [array[j], array[i]];
     }
     return array;
+  }
+
+  onChatBtnClick(){
+    this.router.navigate(['/chat']);
+  }
+
+  onHomeClick(){
+    this.router.navigate(['']);
+  }
+
+  onProfileClick(userId:any){
+    this.router.navigate(['/profile',userId]);
   }
   // onPhotoUpload(event: any){
   //   const file = event.target.files[0];

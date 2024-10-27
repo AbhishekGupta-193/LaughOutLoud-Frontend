@@ -1,0 +1,85 @@
+
+        <div class="dash-sections">
+            <div class="profile-section">
+                <img src="../../../assets/dummyProfile.png" alt="profile">
+                <h4>{{userDetails.username}}</h4>
+            </div>
+
+
+            <div class="main-section">
+                <!-- <div class="msg-box">
+                    <div class="img-box">
+                        <img src="../../../assets/dummyProfile.png" alt="profile" height="40px" width="40px">
+                    </div>
+                </div> -->
+                <div class="post-box" *ngFor="let post of posts">
+                    <div class="post-header">
+                        <div class="post-user">
+                            <img src="../../../assets/dummyProfile.png" alt="profile" height="25px" width="25px">
+                            <span>{{userDetails.username}}</span>
+                        </div>
+                        <img src="../../../assets/3dots.svg" alt="more" height="25px" width="25px">
+                        
+                    </div>
+                    <div class="post-content">
+                        <span>{{post.content}}</span>
+                    </div>
+                    <div class="post-img"  [ngClass]="{'has-media': post.mediaUrl === ''}">
+                        <img src={{post.mediaUrl}} alt="post-img" style="max-height: 450px;width: 100%;margin-top: 2%;border-radius: 5px;">
+                    </div>
+                    <div class="post-reactions">
+                        <div class="reaction">
+                            <img src="../../../assets/heartIcon.svg" alt="more" height="25px" width="25px">
+                            <span>Love</span>
+                        </div>
+                        <div class="reaction">
+                            <img src="../../../assets/moodIcon.svg" alt="more" height="25px" width="25px">
+                            <span>Mood</span>
+                        </div>
+
+                        <div class="reaction">
+                            <img src="../../../assets/commentIcon.svg" alt="more" height="25px" width="25px">
+                            <span>Comment</span>
+                        </div>
+
+                    </div>
+                </div>
+                <div *ngIf="posts.length === 0" class="no-posts">
+                    <div class="nopost-div">
+                        No Posts Yet!
+                    </div>
+                    <!-- <div class="post-header">
+                        <div class="post-user">
+                            <img src="../../../assets/dummyProfile.png" alt="profile" height="25px" width="25px">
+                            <span>Mayank Aryan</span>
+                        </div>
+                        <img src="../../../assets/3dots.svg" alt="more" height="25px" width="25px">
+                    </div>
+                    <div class="post-content">
+                        <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum maiores aliquid nesciunt blanditiis porro eius vitae earum, harum exercitationem quae libero mollitia odit aspernatur expedita recusandae ducimus alias quam consectetur?</span>
+                    </div>
+                    <div class="post-img">
+                        <img src="https://th.bing.com/th/id/OIP.MBEizT9RQV5EOTPEqtF_9AAAAA?rs=1&pid=ImgDetMain" alt="post-img" style="max-height: 450px;width: 100%;margin-top: 2%;border-radius: 5px;">
+                    </div>
+                    <div class="post-reactions">
+                        <div class="reaction">
+                            <img src="../../../assets/heartIcon.svg" alt="more" height="25px" width="25px">
+                            <span>Love</span>
+                        </div>
+                        <div class="reaction">
+                            <img src="../../../assets/moodIcon.svg" alt="more" height="25px" width="25px">
+                            <span>Mood</span>
+                        </div>
+
+                        <div class="reaction">
+                            <img src="../../../assets/commentIcon.svg" alt="more" height="25px" width="25px">
+                            <span>Comment</span>
+                        </div>
+
+                    </div> -->
+                </div>
+            </div>
+
+            <router-outlet></router-outlet>
+        </div>
+

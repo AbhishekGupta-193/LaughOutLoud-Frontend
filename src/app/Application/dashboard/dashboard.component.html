@@ -4,6 +4,10 @@
             <img src="../../../assets/lol_emoji.svg" alt="LOGO" height="30px" width="40px">
             <span>LaughOutLoud</span>
         </div>
+        <div class="home-logo" (click)="onHomeClick()">
+            <img src="../../../assets/homeIcon.svg" alt="LOGO" >
+            <!-- <span>Home</span> -->
+        </div>
         <div class="nav-search">
             <img src="../../../assets/searchIcon.svg" alt="SEARCH" height="30px" width="40px">
             <input type="text" placeholder="Search from here..." [(ngModel)]="searchText">
@@ -16,11 +20,13 @@
     </div>
     <div class="dash-body">
         <div class="dash-sections">
-            <div class="profile-section">
+            <div class="profile-section" *ngIf="currentRoute === '/'">
                 <img src="../../../assets/dummyProfile.png" alt="profile">
                 <h4>{{userDetails.username}}</h4>
             </div>
-            <div class="main-section">
+
+
+            <div class="main-section" *ngIf="currentRoute === '/'">
                 <div class="msg-box">
                     <div class="img-box">
                         <img src="../../../assets/dummyProfile.png" alt="profile" height="40px" width="40px">
@@ -62,7 +68,7 @@
                         <span>{{post.content}}</span>
                     </div>
                     <div class="post-img"  [ngClass]="{'has-media': post.mediaUrl === ''}">
-                        <img src={{post.mediaUrl}} alt="post-img" style="max-height: 450px;width: 100%;">
+                        <img src={{post.mediaUrl}} alt="post-img" style="max-height: 450px;width: 100%;margin-top: 2%;border-radius: 5px;">
                     </div>
                     <div class="post-reactions">
                         <div class="reaction">
@@ -93,7 +99,7 @@
                         <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum maiores aliquid nesciunt blanditiis porro eius vitae earum, harum exercitationem quae libero mollitia odit aspernatur expedita recusandae ducimus alias quam consectetur?</span>
                     </div>
                     <div class="post-img">
-                        <img src="https://th.bing.com/th/id/OIP.MBEizT9RQV5EOTPEqtF_9AAAAA?rs=1&pid=ImgDetMain" alt="post-img" style="max-height: 450px;width: 100%;">
+                        <img src="https://th.bing.com/th/id/OIP.MBEizT9RQV5EOTPEqtF_9AAAAA?rs=1&pid=ImgDetMain" alt="post-img" style="max-height: 450px;width: 100%;margin-top: 2%;border-radius: 5px;">
                     </div>
                     <div class="post-reactions">
                         <div class="reaction">
@@ -113,33 +119,21 @@
                     </div>
                 </div>
             </div>
+
+            <router-outlet></router-outlet>
             <div class="accounts-section">
                 <span>Account Suggestions</span>
-                <div class="account">
-                    <img src="../../../assets/dummyProfile.png" alt="profile" height="25px" width="25px">
-                    <span>Abhishek Gupta</span>
-                    <span class="plus">+</span>
+                <div class="account" *ngFor="let user of allUserDetails">
+                    <img src="../../../assets/dummyProfile.png" alt="profile" height="25px" width="25px" (click)="onProfileClick(user.id)">
+                    <span>{{user.username}}</span>
+                    <img src="../../../assets/chatIcon.svg" alt="chat" (click)="onChatBtnClick()">
                 </div>
-                <div class="account">
-                    <img src="../../../assets/dummyProfile.png" alt="profile" height="25px" width="25px">
-                    <span>Mayank Aryan</span>
-                    <span class="plus">+</span>
-                </div>
-                <div class="account">
-                    <img src="../../../assets/dummyProfile.png" alt="profile" height="25px" width="25px">
-                    <span>Washim Akram</span>
-                    <span class="plus">+</span>
-                </div>
-                <div class="account">
-                    <img src="../../../assets/dummyProfile.png" alt="profile" height="25px" width="25px">
-                    <span>Sindhu Muruli</span>
-                    <span class="plus">+</span>
-                </div>
-                <div class="account">
-                    <img src="../../../assets/dummyProfile.png" alt="profile" height="25px" width="25px">
+                <!-- <div class="account">
+                    <img src="../../../assets/dummyProfile.png" alt="profile" height="25px" width="25px" style="display: flex;width: 20%;justify-content: flex-start;">
                     <span>Sneha Kulkarni</span>
                     <span class="plus">+</span>
-                </div>
+                    <img src="../../../assets/chatIcon.svg" alt="chat">
+                </div> -->
             </div>
         </div>
     </div>
