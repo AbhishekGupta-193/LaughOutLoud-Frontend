@@ -1,8 +1,9 @@
 <div class="dash-container">
     <div class="dash-nav">
         <div class="nav-logo">
-            <img src="../../../assets/lol_emoji.svg" alt="LOGO" height="30px" width="40px">
-            <span>LaughOutLoud</span>
+            <!-- <img src="../../../assets/lol_emoji.svg" alt="LOGO" height="30px" width="40px">
+            <span>LaughOutLoud</span> -->
+            <img src="../../../assets/headerLogo.png" alt="LOGO" height="60px" width="160px">
         </div>
         <div class="home-logo" (click)="onHomeClick()">
             <img src="../../../assets/homeIcon.svg" alt="LOGO" >
@@ -13,6 +14,7 @@
             <input type="text" placeholder="Search from here..." [(ngModel)]="searchText">
         </div>
         <div class="nav-profile">
+            <img src="../../../assets/notificationIcon.svg" alt="notification" style="margin-right: 2%;">
             <img src="../../../assets/dummyProfile.png" alt="profile" height="30px" width="30px">
             <span>{{userDetails.username}}</span>
             <img src="../../../assets/dropdown.svg" alt="dropdown" (click)="openDialog()">
