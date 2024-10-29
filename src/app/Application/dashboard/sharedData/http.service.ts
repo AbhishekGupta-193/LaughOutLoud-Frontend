@@ -20,4 +20,9 @@ export class HttpService {
     console.log("createPost Service Working");
     return this.http.post(this.baseURL+url,payload);
   }
+
+  deletePost(url:string,id:any):Observable<any>{
+    console.log("deletePost Service Working");
+    return this.http.delete(this.baseURL+url+'/'+id);
+  }
 }

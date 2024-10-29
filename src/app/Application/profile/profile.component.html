@@ -18,8 +18,19 @@
                             <img src="../../../assets/dummyProfile.png" alt="profile" height="25px" width="25px">
                             <span>{{userDetails.username}}</span>
                         </div>
-                        <img src="../../../assets/3dots.svg" alt="more" height="25px" width="25px">
-                        
+                        <div class="post-icons">
+                            <img src="../../../assets/editIcon.svg" alt="more" >
+                            <img src="../../../assets/deleteIcon.svg" alt="more" (click)="onDeleteBtnClick(post.id)">
+                        </div>
+                        <!-- <mat-accordion>
+                            <mat-expansion-panel (opened)="panelOpenState.set(true)" (closed)="panelOpenState.set(false)">
+                                <mat-expansion-panel-header>
+                                  <mat-panel-title> More </mat-panel-title>
+                                </mat-expansion-panel-header>
+                                <p style="cursor: pointer;">Edit</p>
+                                <p style="cursor: pointer;" (click)="onDeleteBtnClick(post.id)">Delete</p>
+                              </mat-expansion-panel>
+                            </mat-accordion> -->
                     </div>
                     <div class="post-content">
                         <span>{{post.content}}</span>

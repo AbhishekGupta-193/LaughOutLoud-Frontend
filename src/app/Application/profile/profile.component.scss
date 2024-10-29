@@ -180,6 +180,11 @@ img{
     align-items: center;
     width: 40%
 }
+.post-icons{
+    display: flex;
+    width: 12%;
+    justify-content: space-between;
+}
 .post-user span{
     margin-left: 4%;
 }

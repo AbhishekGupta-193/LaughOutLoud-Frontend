@@ -15,4 +15,9 @@ export class HttpService {
     console.log("getUserByID Service is working");
     return this.http.get(this.baseURL+url+"/"+id);
   }
+
+  deletePost(url:string,id:any):Observable<any>{
+    console.log("deletePost Service Working");
+    return this.http.delete(this.baseURL+url+'/'+id);
+  }
 }

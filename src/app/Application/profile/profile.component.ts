@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, signal } from '@angular/core';
 import { HttpService } from './sharedData/http.service';
 import { ActivatedRoute } from '@angular/router';
 
@@ -12,7 +12,7 @@ export class ProfileComponent implements OnInit {
   userDetails: any;
   searchText: any;
   posts: any;
-
+  readonly panelOpenState = signal(false);
   constructor(private route: ActivatedRoute, private http: HttpService) {}
 
   ngOnInit(): void {
@@ -32,5 +32,22 @@ export class ProfileComponent implements OnInit {
         }
       });
     });
+  }
+
+  onDeleteBtnClick(postId: any) {
+    if (confirm("Are you sure you want to delete this post?")) {
+      this.http.deletePost("/posts", postId).subscribe({
+        next: (res: any) => {
+          alert("Post deleted successfully");
+          console.log("DeletePost Service successful", res);
+          window.location.reload(); // Refresh the page
+        },
+        error: (err: any) => {
+          console.log("DeletePost Service Failed", err);
+        }
+      });
+    } else {
+      console.log("Delete action cancelled");
+    }
   }
 }

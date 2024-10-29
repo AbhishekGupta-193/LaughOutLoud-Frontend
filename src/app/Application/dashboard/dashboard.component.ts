@@ -1,10 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { LogoutDialogComponent } from 'src/app/Dialog/logout-dialog/logout-dialog.component';
 import { SignInService } from 'src/app/Authentication/signin/sharedData/sign-in.service';
 import { HttpService } from './sharedData/http.service';
 import { Router } from '@angular/router';
-
 interface Comment {
   id: number;
   text: string;
@@ -30,6 +29,8 @@ export class DashboardComponent {
     private router:Router
   ) {}
   
+  readonly panelOpenState = signal(false);
+
   searchText:any;
   currentRoute: string = '';
   userDetails:any;
@@ -157,6 +158,24 @@ export class DashboardComponent {
   onProfileClick(userId:any){
     this.router.navigate(['/profile',userId]);
   }
+
+  onDeleteBtnClick(postId: any) {
+    if (confirm("Are you sure you want to delete this post?")) {
+      this.httpService.deletePost("/posts", postId).subscribe({
+        next: (res: any) => {
+          alert("Post deleted successfully");
+          console.log("DeletePost Service successful", res);
+          window.location.reload(); // Refresh the page
+        },
+        error: (err: any) => {
+          console.log("DeletePost Service Failed", err);
+        }
+      });
+    } else {
+      console.log("Delete action cancelled");
+    }
+  }
+  
   // onPhotoUpload(event: any){
   //   const file = event.target.files[0];
   //   if (file) {
