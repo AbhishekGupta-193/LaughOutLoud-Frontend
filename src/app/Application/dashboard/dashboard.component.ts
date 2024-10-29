@@ -132,6 +132,8 @@ export class DashboardComponent {
     this.httpService.createPost("/posts",{content,mediaUrl,user}).subscribe({
       next:(res:any)=>{
         console.log("createPost Service successful ",res);
+        alert("Post added successfully")
+        window.location.reload(); // Refresh the page
       },
       error:(err:any)=>{
         console.log("createPost Service Failed ",err);
